@@ -1,22 +1,38 @@
 package it.eneaminelli.characters;
 
 import it.eneaminelli.GameEntity;
+import it.eneaminelli.backpack.Backpack;
 import it.eneaminelli.weapons.Weapon;
 
 public abstract class GameCharacter extends GameEntity {
 
     protected Weapon weapon;
+    protected Backpack backpack;
 
+    //Getter for backpack
+    public Backpack getBackpack() {
+        return backpack;
+    }
+
+    public void showBackpackContent(){
+        this.backpack.display();
+    }
+
+    //Getter and setter for weapon
     public Weapon getWeapon() {
         return weapon;
     }
-    
+
     public void setWeapon(Weapon weapon) {
+        System.out.println("Changing weapon with a new " + weapon);
         this.weapon = weapon;
     }
-    
+
+
+    // ---------------------------------------------- Game Character constructor
     public GameCharacter(String name) {
         super(name);
+        this.backpack = new Backpack();
     }
 
     //Template Method - finalò to preserve the algs structure
@@ -53,4 +69,5 @@ public abstract class GameCharacter extends GameEntity {
     public void defend() {
         System.out.println(name + " is defending from an attack");
     }
+
 }

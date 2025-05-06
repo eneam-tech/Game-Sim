@@ -15,5 +15,11 @@ public class IceRuneDecorator extends WeaponDecorator {
         decoratedWeapon.attack();
         System.out.println("The attack freezes enemy with ice.");
     }
-    
+
+    @Override
+    public String toString(){
+        return this.decoratedWeapon.toString() + "("+ this.getClass().getSimpleName() +")";
+    }
 }
+    
+

@@ -14,4 +14,9 @@ public class BasicWeapon implements Weapon {
     public void attack() {
         this.strategy.executeAttack();
     }
+
+    @Override
+    public String toString(){
+        return "Basic Weapon";
+    }
 }

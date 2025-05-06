@@ -16,4 +16,8 @@ public class FireRuneDecorator extends WeaponDecorator {
         System.out.println("The attack burns enemy with fire.");
     }
     
+    @Override
+    public String toString(){
+        return this.decoratedWeapon.toString() + "("+ this.getClass().getSimpleName() +")";
+    }
 }

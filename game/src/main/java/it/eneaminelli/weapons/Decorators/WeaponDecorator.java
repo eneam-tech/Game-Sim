@@ -14,4 +14,9 @@ public abstract class WeaponDecorator implements Weapon{
         decoratedWeapon.attack();
     }
 
+    @Override
+    public String toString(){
+        return super.toString() + "(" + this.getClass().getSimpleName() +")";
+    }
+
 }
