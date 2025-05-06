@@ -1,14 +1,22 @@
 package it.eneaminelli.characters;
 
 import it.eneaminelli.GameEntity;
-import it.eneaminelli.attacks.AttackStrategy;
+import it.eneaminelli.weapons.Weapon;
 
 public abstract class GameCharacter extends GameEntity {
-    protected AttackStrategy attackStrategy;
 
-    public GameCharacter(String name, AttackStrategy attackStrategy) {
+    protected Weapon weapon;
+
+    public Weapon getWeapon() {
+        return weapon;
+    }
+    
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
+    }
+    
+    public GameCharacter(String name) {
         super(name);
-        this.attackStrategy = attackStrategy;
     }
 
     //Template Method - finalò to preserve the algs structure
@@ -33,7 +41,12 @@ public abstract class GameCharacter extends GameEntity {
     //Delegates attack to the provided AttackStrategy
     public void attack() {
         System.out.println(name + " is attacking.");
-        attackStrategy.executeAttack();
+        if (this.weapon != null){
+            this.weapon.attack();
+        }
+        else{
+            System.err.println("No weapon equipped, can't attack.");
+        }
     }
 
     //Hook method that can be overridden by sybclass for custom defense behaviour

@@ -1,18 +1,16 @@
 package it.eneaminelli.characters;
 
-import it.eneaminelli.attacks.AttackStrategy;
-
 public class FireMage extends Mage {
 
-    public FireMage(String name, AttackStrategy attackStrategy) {
-        super(name, attackStrategy);
+    public FireMage(String name) {
+        super(name);
     }
 
     //Overriding attack for fire mage
     @Override
     public void attack() {
         System.out.println(name + " conjures a fire spell attack.");
-        attackStrategy.executeAttack();
+        super.attack();
     }
 
 }

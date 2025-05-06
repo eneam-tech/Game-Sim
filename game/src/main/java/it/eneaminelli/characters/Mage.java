@@ -1,10 +1,12 @@
 package it.eneaminelli.characters;
 
-import it.eneaminelli.attacks.AttackStrategy;
+import it.eneaminelli.attacks.RangedAttack;
+import it.eneaminelli.weapons.BasicWeapon;
 
 public class Mage extends GameCharacter {
-    public Mage(String name, AttackStrategy attackStrategy) {
-        super(name, attackStrategy);
+    public Mage(String name) {
+        super(name);
+        this.setWeapon(new BasicWeapon(new RangedAttack()));
     }
 
     //Overriding defence for mage
